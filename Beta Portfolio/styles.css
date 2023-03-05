@@ -15,6 +15,10 @@ body {
 header {
   background-color: #1f1f1f;
   padding: 20px 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
 }
 nav {
   display: flex;
@@ -29,46 +33,124 @@ nav img {
 }
 nav a {
   text-decoration: none;
-  color: #7d7d7d;
+  color: #ffffff;
 }
 .shapeshift-container {
   position: relative;
-  width: 280px;
+  width: 300px;
   height: 310px;
-  max-width: 280px;
   margin: 0 auto;
+}
+#topBlocks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  width: 300px;
+  animation: ssTopBlocksMoveDown cubic-bezier(0.075, 0.82, 0.165, 1) 10s
+    infinite;
+}
+@keyframes ssGap {
+  0% {
+  }
+  20% {
+    width: 109px;
+  }
+  40% {
+  }
+  60% {
+  }
+  80% {
+  }
+  81% {
+    width: calc(50% - 1px);
+  }
+}
+@keyframes ssTopBlocksMoveDown {
+  0% {
+    top: 0px;
+  }
+  20% {
+    /*State 1*/
+  }
+  40% {
+    /*State 2*/
+    top: 50%;
+  }
+  60% {
+    /*State 3*/
+    top: 50%;
+  }
+  80% {
+    /*State 4*/
+  }
+  81% {
+    /*Reset back to original*/
+    top: 0px;
+  }
+}
+@keyframes middleBlockShortens {
+  0% {
+  }
+  20% {
+    /*State 1*/
+    top: 50%;
+    height: 55px;
+  }
+  40% {
+    /*State 2*/
+    height: 252px;
+    top: 70px;
+    left: calc(50% - 27.5px);
+  }
+  60% {
+    /*State 3*/
+    left: calc(100% - 55px);
+    height: 55px;
+    top: 50%;
+  }
+  80% {
+    /*State 4*/
+    left: calc(100% - 55px);
+    top: 50%;
+    height: 55px;
+  }
+  81% {
+    /*Reset back to original*/
+    top: 70px;
+    height: 252px;
+  }
 }
 
 .block {
   background-color: white;
-  position: absolute;
   cursor: pointer;
-}
-.block:nth-child(1) {
-  animation: shapeshift_b1 15s ease-in;
-}
-.block:nth-child(2) {
-  animation: shapeshift_b2 15s ease-in;
-}
-.block:nth-child(3) {
-  animation: shapeshift_b3 15s ease-in;
-}
-#block1,
-#block2 {
-  width: 135px;
-  height: 55px;
-}
-.block:nth-child(2),
-#block2 {
-  left: 138px;
+  position: absolute;
   top: 0;
 }
-.block:nth-child(3),
+
+#block1,
+#block2 {
+  width: calc(50% - 1px);
+  height: 55px;
+  animation: ssGap cubic-bezier(0.075, 0.82, 0.165, 1) 10s infinite;
+  /*animation: ssTop cubic-bezier(0.075, 0.82, 0.165, 1) 10s infinite;*/
+}
+
+#block1 {
+  left: 0;
+}
+#block2 {
+  right: 0;
+}
 #block3 {
   top: 70px;
   left: calc(48% - 22.25px);
   width: 55px;
   height: 252px;
+  animation: middleBlockShortens cubic-bezier(0.075, 0.82, 0.165, 1) 10s
+    infinite;
 }
 section:first-of-type {
   width: 100vw;
