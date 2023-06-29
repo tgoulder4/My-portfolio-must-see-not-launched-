@@ -11,3 +11,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #171717;
 }
+* {
+  color: white;
+}
+button {
+  border-left: 1px solid rgb(2 6 23);
+  border-bottom: 1px solid rgb(2 6 23);
+}
+#output {
+  box-sizing: content-box;
+}
