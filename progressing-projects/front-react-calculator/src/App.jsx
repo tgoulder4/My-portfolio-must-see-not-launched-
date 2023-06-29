@@ -15,6 +15,7 @@ function App() {
         </div>
         <div id="buttons" className="flex-[5] grid grid-cols-4">
           <button
+            onClick={() => console.log("clicked")}
             type="button"
             className="text-white bg-emerald-600 hover:bg-emerald-800"
           >
