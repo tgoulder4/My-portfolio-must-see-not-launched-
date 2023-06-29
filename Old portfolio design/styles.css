@@ -1,0 +1,287 @@
+* {
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #141414;
+  overflow-x: hidden;
+  min-width: 700px;
+}
+.hide {
+  display: none;
+}
+header {
+  background-color: #1f1f1f;
+  padding: 20px 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1500px;
+  min-width: 500px;
+  margin: 0 auto;
+}
+nav img {
+  cursor: pointer;
+}
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.shapeshift-container {
+  position: relative;
+  width: 300px;
+  height: 310px;
+  margin: 0 auto;
+}
+#topBlocks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  width: 300px;
+  animation: ssTopBlocksMoveDown cubic-bezier(0.075, 0.82, 0.165, 1) 10s
+    infinite;
+}
+@keyframes ssGap {
+  0% {
+  }
+  20% {
+    width: 109px;
+  }
+  40% {
+  }
+  60% {
+  }
+  80% {
+  }
+  81% {
+    width: calc(50% - 1px);
+  }
+}
+@keyframes ssTopBlocksMoveDown {
+  0% {
+    top: 0px;
+  }
+  20% {
+    /*State 1*/
+  }
+  40% {
+    /*State 2*/
+    top: 50%;
+  }
+  60% {
+    /*State 3*/
+    top: 50%;
+  }
+  80% {
+    /*State 4*/
+  }
+  81% {
+    /*Reset back to original*/
+    top: 0px;
+  }
+}
+@keyframes middleBlockShortens {
+  0% {
+  }
+  20% {
+    /*State 1*/
+    top: 50%;
+    height: 55px;
+  }
+  40% {
+    /*State 2*/
+    height: 252px;
+    top: 70px;
+    left: calc(50% - 27.5px);
+  }
+  60% {
+    /*State 3*/
+    left: calc(100% - 55px);
+    height: 55px;
+    top: 50%;
+  }
+  80% {
+    /*State 4*/
+    left: calc(100% - 55px);
+    top: 50%;
+    height: 55px;
+  }
+  81% {
+    /*Reset back to original*/
+    top: 70px;
+    height: 252px;
+  }
+}
+
+.block {
+  background-color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+}
+
+#block1,
+#block2 {
+  width: calc(50% - 1px);
+  height: 55px;
+  animation: ssGap cubic-bezier(0.075, 0.82, 0.165, 1) 10s infinite;
+  /*animation: ssTop cubic-bezier(0.075, 0.82, 0.165, 1) 10s infinite;*/
+}
+
+#block1 {
+  left: 0;
+}
+#block2 {
+  right: 0;
+}
+#block3 {
+  top: 70px;
+  left: calc(48% - 22.25px);
+  width: 55px;
+  height: 252px;
+  animation: middleBlockShortens cubic-bezier(0.075, 0.82, 0.165, 1) 10s
+    infinite;
+}
+section:first-of-type {
+  width: 100vw;
+  padding: 50px;
+  padding-top: 150px;
+  padding-bottom: 0;
+}
+#welcome-section {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+#welcome-section p {
+  margin-top: 100px;
+}
+nav img {
+  opacity: 0%;
+}
+svg {
+  opacity: 80%;
+  margin-top: 40px;
+  width: 10px;
+}
+.whoIAm {
+  text-align: center;
+  color: #ffffff;
+  margin: 620px auto;
+}
+
+.projects {
+  padding: clamp(10px, 100px, 264px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+}
+.project-container {
+  position: relative;
+  max-width: 1000px;
+}
+.project-container:nth-child(1):before {
+  content: "#1 - Learnmate";
+  position: absolute;
+  top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+.project-container:nth-child(2):before {
+  content: "#2 - Canon";
+  position: absolute;
+  top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+.project-container:nth-child(3):before {
+  content: "#3 - Tesla";
+  position: absolute;
+  top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+.project-container:nth-child(4):before {
+  content: "#4 - TikTok";
+  position: absolute;
+  top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+.project-container img {
+  width: 100%;
+}
+.noteContainer {
+  background-color: #000000;
+  opacity: 90%;
+  padding: 20px 0;
+}
+.noteWithCTA {
+  display: flex;
+  width: 80%;
+
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.noteWithCTA i {
+  width: 400px;
+  color: white;
+  font-size: 0.8rem;
+  padding: 5px;
+}
+#projectsTitle {
+  position: relative;
+}
+.main_header {
+  background-color: rgb(33, 33, 33);
+  padding: clamp(100px, 100px, 264px);
+  color: white;
+  text-align: center;
+}
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 5;
+  padding: 5px 20px;
+  margin-right: 5px;
+}
+.small {
+  max-width: 300px;
+  gap-right: 5px;
+}
+#contactSection {
+  display: flex;
+  flex-direction: column;
+}
+#contactSection,
+#contactSection a {
+  margin-top: 10px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+#contactSection a {
+  margin-top: -5px;
+}
+#contactSection {
+  background-color: #2e2e2e;
+  padding-bottom: 30px;
+}
