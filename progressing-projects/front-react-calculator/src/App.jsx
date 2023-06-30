@@ -9,7 +9,7 @@ function App() {
         id="cal-container"
         className="w-1/4 min-w-[350px] h-3/4 flex flex-col outline outline-1 outline-teal-300"
       >
-        <div id="output" className="flex-[1.5] bg-slate-950">
+        <div id="output" className="flex-[1.5] flex justify-end items-center bg-slate-950">
           <div id="operator"></div>
           <div id="operand"></div>
         </div>
