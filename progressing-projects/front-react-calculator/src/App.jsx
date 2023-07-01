@@ -3,13 +3,19 @@ import logo from "./logo.svg";
 import { AiOutlinePlus } from "react-icons/ai";
 
 function App() {
+  //some state thingy? I want to get the value of the button pressed
+  //and add this to the output string.
+  //what is the state here? Onclick of a button? Or...? Idk
   return (
     <div className="App flex justify-center items-center h-screen">
       <div
         id="cal-container"
         className="w-1/4 min-w-[350px] h-3/4 flex flex-col outline outline-1 outline-teal-300"
       >
-        <div id="output" className="flex-[1.5] flex justify-end items-center bg-slate-950">
+        <div
+          id="output"
+          className="flex-[1.5] flex justify-end items-center bg-slate-950"
+        >
           <div id="operator"></div>
           <div id="operand"></div>
         </div>
