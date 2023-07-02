@@ -1,8 +1,12 @@
 const mongoose = require("mongoose");
-const app = require("express")();
+const express = require("express");
+const app = express();
 const User = require("./models/userSchema");
+const userRouter = require("./routes/user");
 const PORT = process.env.PORT || 3000;
 mongoose.connect("mongodb://localhost:27017");
+app.use(express.json());
+app.use(userRouter);
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}!`);
 });
