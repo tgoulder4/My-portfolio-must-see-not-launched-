@@ -4,17 +4,22 @@ const router = express.Router();
 const User = require("../models/userSchema");
 const saltRounds = 10;
 const userMaxLength = 15; //maximum length of username.
+const responses = {
+  too_long: "TOO_LONG",
+  already_exists: "USER_EXISTS",
+  user_added: "USER_ADDED",
+  hash_error: "HASH_ERROR",
+};
 router.post("/register", async (req, res) => {
   if (req.body.username && req.body.password) {
     try {
-      if (String(req.username).length <= userMaxLength) {
-        console.log(String(req.username).length);
+      if (String(req.body.username).length <= userMaxLength) {
         const { username, password } = req.body;
         //if the username doesn't already exist then we can do it.
 
         //what if the user entered no password? or no username?
         if (await User.findOne({ username })) {
-          res.send(`User ${req.body.username} already exists.`);
+          res.send(responses.already_exists);
         } else {
           bcrypt.hash(password, saltRounds, async (err, hash) => {
             if (!err) {
@@ -24,15 +29,15 @@ router.post("/register", async (req, res) => {
               });
               await _user.save();
               res.send(
-                `Successfully saved the following user object: ${_user}`
+                `${responses.user_added}: ${_user}` //remove the ${_user} in prod
               );
             } else {
-              res.send("Error hashing password - user was not saved.");
+              res.send(responses.hash_error);
             }
           });
         }
       } else {
-        res.send(`Username must be less than ${userMaxLength} characters.`);
+        res.send(responses.too_long);
       }
     } catch (err) {
       res.send(err);
